@@ -1,4 +1,4 @@
-# Worblehat
+# Hello Java
 
 [![Build Status](https://travis-ci.org/scrum-for-developers/worblehat.svg?branch=master)](https://travis-ci.org/scrum-for-developers/worblehat)
 
@@ -6,18 +6,21 @@ Worblehat is a Java Spring-Boot based Case Study for the [Applying Professional 
 held by [Andreas Ebbert-Karroum](https://www.scrum.org/andreas-ebbert-karroum) from [codecentric AG](https://www.codecentric.de/).
 
 ## Requirements
-* JDK 11+
-* Docker
+
+- JDK 11+
+- Docker
 
 Maven comes bundled with the maven wrapper scripts, no need for manual installation before.
 
 ## Running the application
 
 1. Compile and install the application in the local maven repository with `./mvnw install`
-1. Start the database. The easiest way is to fire up a docker container with  `worblehat-web/docker-db.sh`.
+1. Start the database. The easiest way is to fire up a docker container with `worblehat-web/docker-db.sh`.
 1. Run the application.:
-  * Either run `./mvnw -pl worblehat-web spring-boot:run` (will automatically compile & package the application before)
-  * Or use your IDE to start the main class in worblehat-web: `de.codecentric.psd.Worblehat`
+
+- Either run `./mvnw -pl worblehat-web spring-boot:run` (will automatically compile & package the application before)
+- Or use your IDE to start the main class in worblehat-web: `de.codecentric.psd.Worblehat`
+
 1. Access the application at <http://localhost:8080/worblehat/>
 
 ## Running tests
@@ -29,13 +32,14 @@ maven lifecycle phases, are executed by differen maven plugins, and follow a dif
 
 1. Unit tests are run with `./mvnw test`
 1. The [maven-surefire-plugin](https://maven.apache.org/surefire/maven-surefire-plugin) includes
- [all these tests](https://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#includes) by default:
- ```
+   [all these tests](https://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#includes) by default:
+
+```
 <includes>
-    <include>**/Test*.java</include>
-    <include>**/*Test.java</include>
-    <include>**/*Tests.java</include>
-    <include>**/*TestCase.java</include>
+   <include>**/Test*.java</include>
+   <include>**/*Test.java</include>
+   <include>**/*Tests.java</include>
+   <include>**/*TestCase.java</include>
 </includes>
 ```
 
@@ -44,13 +48,15 @@ maven lifecycle phases, are executed by differen maven plugins, and follow a dif
 1. Acceptance tests are run by activating the required profile `./mvnw -P runITs verify`.
 
    Note: The `verify` lifecycle is executed before `install`. Integration tests are only included, if the `runITs` profile is activated.
+
 1. The [maven-failsafe-plugin](https://maven.apache.org/surefire/maven-failsafe-plugin) includes
- [all these tests](https://maven.apache.org/surefire/maven-failsafe-plugin/integration-test-mojo.html#includes) by default:
- ```
+   [all these tests](https://maven.apache.org/surefire/maven-failsafe-plugin/integration-test-mojo.html#includes) by default:
+
+```
 <includes>
-    <include>**/IT*.java</include>
-    <include>**/*IT.java</include>
-    <include>**/*ITCase.java</include>
+   <include>**/IT*.java</include>
+   <include>**/*IT.java</include>
+   <include>**/*ITCase.java</include>
 </includes>
 ```
 
@@ -79,10 +85,11 @@ computer.
 ### Long build times
 
 If your build is taking too long, here are some strategies:
-* add a webhook from your git repository to jenkins, in order to trigger a build immedeately
-* try to reduce the amount of work in feature branches
-* try to do steps in parallel
-* try to reduce the amount of generated reports (maven-project-info-reports-plugin)
+
+- add a webhook from your git repository to jenkins, in order to trigger a build immedeately
+- try to reduce the amount of work in feature branches
+- try to do steps in parallel
+- try to reduce the amount of generated reports (maven-project-info-reports-plugin)
 
 ### Hot Reloading
 
@@ -102,9 +109,11 @@ set breakpoints in the step definitions. This might help to understand, why thin
 ### Changelog
 
 The source for the generated Changelog can be found at `src/changes/changes.xml`. The XML file's syntax is [documented with the maven changes plugin](https://maven.apache.org/plugins/maven-changes-plugin/changes.html).
+
 ### Version Number
 
 The version number should follow [semantic versioning](https://semver.org/):
+
 1. Major version is currently `1` and should only change for breaking changes
 1. Minor version should be set to the sprint number
 1. Patch version is incremental, if you choose to deploy multiple times within a sprint or need to publish a bugfix release. Start with 0.
@@ -112,9 +121,9 @@ The version number should follow [semantic versioning](https://semver.org/):
 To release for example version 1.2.0 follow these steps:
 
 1. Remove Snapshot version: `./mvnw versions:set -DremoveSnapshot`
-    * Alternatively, you can use the interactive mode and just call `./mvnw versions:set`
+   - Alternatively, you can use the interactive mode and just call `./mvnw versions:set`
 1. Optional: Create a git tag and push the tag back to the team repository
-    * `git tag v1.2.0`
-    * `git push origin --tags` or `git push origin v1.2.0`
+   - `git tag v1.2.0`
+   - `git push origin --tags` or `git push origin v1.2.0`
 1. Let jenkins build the release and deploy it to the test and production environments
 1. Bump the version for the next development iteration: `./mvnw versions:set -DnewVersion=1.3.0-SNAPSHOT`
