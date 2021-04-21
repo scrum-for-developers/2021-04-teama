@@ -4,10 +4,10 @@ docker ps -a | grep worblehat-db >> /dev/null
 
 if [ $? -eq 0 ]; then
   docker ps -a | grep worblehat-db | grep Exited >> /dev/null
-  if [ $? == 0 ]; then 
+  if [ $? == 0 ]; then
     echo Starting existing but stopped container worblehat-db
     docker start worblehat-db  >> /dev/null
-  else 
+  else
     echo Container worblehat-db is already running
   fi
 else
