@@ -34,5 +34,18 @@
         Improved error messages.
       </action>
     </release>
+
+    <release version="1.1.3" date="2021-04-21"
+             description="Release of functionality implemented in sprint 2">
+      <action dev="a-team worblers" type="fix">
+        Removed link to all borrowed books.
+      </action>
+      <action dev="a-team worblers" type="update">
+        Translated error messages to english.
+      </action>
+      <action dev="a-team worblers" type="update">
+        Updated spring boot.
+      </action>
+    </release>
 	</body>
 </document>
