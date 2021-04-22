@@ -15,5 +15,17 @@
 </form>
 
 <div th:replace="fragments/footer :: subpage-footer">Footer</div>
+
+<script>
+  document.querySelectorAll('input:not([type=submit])').forEach(input => {
+    input.addEventListener('paste', event => {
+       setTimeout(() => {
+          const target = event.target;
+          target.value = target.value.trim();
+        }, 0)
+    })
+  })
+</script>
+
 </body>
 </html>
