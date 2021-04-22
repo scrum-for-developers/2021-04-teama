@@ -47,5 +47,12 @@
         Updated spring boot.
       </action>
     </release>
+
+    <release version="1.1.4" date="2021-04-22"
+             description="Release of functionality implemented in sprint 3">
+      <action dev="a-team worblers" type="update">
+        ISBN allow 13 digits.
+      </action>
+    </release>
 	</body>
 </document>
